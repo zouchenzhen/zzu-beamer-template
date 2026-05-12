@@ -1,0 +1,32 @@
+\section{研究背景}
+
+\begin{frame}
+  \frametitle{选题动机}
+  本模板演示如何在 Beamer 中复用郑州大学视觉风格，覆盖学术汇报常见元素：
+  \begin{itemize}
+    \item 列表、强调、引用、超链接
+    \item 数学公式与定理环境
+    \item 三线表、并排图、代码片段
+    \item 章节封面（红色全屏）、致谢页
+  \end{itemize}
+  \pause
+  \vspace{0.6em}
+  使用前请将 \texttt{beamerthemezzu.sty} 和 \texttt{figures/} 放在与 \texttt{main.tex} 同级目录，并以 \alert{XeLaTeX} 编译。
+\end{frame}
+
+\begin{frame}
+  \frametitle{研究问题}
+  \begin{block}{核心问题}
+    如何在保持郑大视觉规范（主色 \texttt{\#A33A37}、双环校徽）的前提下，构建一份足够通用、易于二次开发的 Beamer 模板？
+  \end{block}
+  \begin{alertblock}{设计约束}
+    \begin{enumerate}
+      \item 单一主题文件 \texttt{beamerthemezzu.sty}，开箱即用
+      \item 字体跨平台兼容（依赖 \texttt{ctex} 自动选字）
+      \item 兼容 4:3 与 16:9 两种比例
+    \end{enumerate}
+  \end{alertblock}
+  \begin{exampleblock}{对照参考}
+    本模板的整体组织参考了 \href{https://github.com/pan2013e/ZJU-beamer-template}{pan2013e/ZJU-beamer-template}（浙大 Beamer 模板）。
+  \end{exampleblock}
+\end{frame}

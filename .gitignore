@@ -1,0 +1,30 @@
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.nav
+*.out
+*.snm
+*.synctex.gz
+*.toc
+*.vrb
+*.xdv
+*.bcf
+*.run.xml
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Local-only build dirs
+build/
+out/
+_minted-*/
+
+# Keep the compiled showcase PDF (uncomment the next line to ignore it)
+# main.pdf

@@ -1,0 +1,14 @@
+% Table of contents, re-shown at the start of every section.
+\begin{frame}
+  \frametitle{目录}
+  \tableofcontents
+\end{frame}
+
+\AtBeginSection[]{%
+  \begin{frame}
+    \frametitle{目录}
+    \tableofcontents[currentsection, currentsubsection,
+                    sectionstyle=show/shaded,
+                    subsectionstyle=show/shaded/hide]
+  \end{frame}%
+}

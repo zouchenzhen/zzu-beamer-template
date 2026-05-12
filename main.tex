@@ -1,0 +1,75 @@
+% ============================================================
+% ZZU Beamer Template -- main entry
+% Compile with XeLaTeX (-> XeLaTeX for cross-refs).
+%
+% References (organisational inspiration only):
+%   pan2013e/ZJU-beamer-template, qychen2001/ZJU-Beamer-Template, ZZUTUG/ZZU-Beamer
+% ============================================================
+
+\PassOptionsToPackage{dvipsnames}{xcolor}
+
+\documentclass[10pt, aspectratio=169, mathserif]{beamer}
+
+% Chinese support via ctex.
+\usepackage[UTF8, fontset=windows]{ctex}
+
+% Theme: pulls in colors, fonts, frame title, footline, section page.
+\usepackage{zzubeamer}
+
+% Math, figures, tables, code.
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{listings}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=zzured,
+  urlcolor=zzuslate,
+  citecolor=zzudarkred,
+}
+
+% Code listings styling: keep it ZZU-flavored.
+\lstset{
+  basicstyle=\ttfamily\footnotesize,
+  keywordstyle=\color{zzured}\bfseries,
+  commentstyle=\color{zzuslate}\itshape,
+  stringstyle=\color{zzugold},
+  numberstyle=\tiny\color{zzugray},
+  numbers=left,
+  numbersep=8pt,
+  frame=single,
+  framerule=0.4pt,
+  rulecolor=\color{zzured!40},
+  backgroundcolor=\color{zzucream!50},
+  breaklines=true,
+  showstringspaces=false,
+  tabsize=2,
+  captionpos=b,
+}
+
+% Picture search path.
+\graphicspath{{figures/}}
+
+% ----------------------------------------------------------------
+% Metadata. Override these for your own talk.
+% ----------------------------------------------------------------
+\title[ZZU Beamer 模板]{郑州大学 Beamer 演示模板}
+\subtitle{ZZU Beamer Template Showcase}
+\author[Your Name]{你的姓名}
+\institute[ZZU]{郑州大学\,\textbar\,Zhengzhou University \\ \small School / Department Name}
+\date{\today}
+
+\begin{document}
+
+\input{frames/cover.tex}
+\input{frames/toc.tex}
+\input{frames/intro.tex}
+\input{frames/method.tex}
+\input{frames/results.tex}
+\input{frames/conclusion.tex}
+\input{frames/bib.tex}
+\input{frames/thanks.tex}
+
+\end{document}

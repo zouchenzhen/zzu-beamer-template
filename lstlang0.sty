@@ -1,0 +1,11 @@
+%% lstlang0.sty -- empty shim
+%%
+%% MiKTeX's listings.cfg references lstlang0.sty in its \lstlanguagefiles list,
+%% but the file is not shipped with the package. The result is a fatal
+%% "Couldn't load requested aspect" error on first compile.
+%%
+%% This empty shim, kept inside the project, lets the compile go through without
+%% touching the system-wide MiKTeX installation. Safe to delete once upstream
+%% ships its own lstlang0.sty.
+\ProvidesFile{lstlang0.sty}[2026/05/13 v1.0 empty shim for MiKTeX listings.cfg]
+\endinput

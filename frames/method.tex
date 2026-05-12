@@ -1,0 +1,29 @@
+\section{方法论}
+
+\begin{frame}
+  \frametitle{公式与定理}
+  贝叶斯定理常被用作演示样例：
+  \begin{equation}
+    P(\theta \mid \mathcal{D}) = \frac{P(\mathcal{D} \mid \theta)\,P(\theta)}{P(\mathcal{D})}
+    \label{eq:bayes}
+  \end{equation}
+  其中 $\theta$ 为参数，$\mathcal{D}$ 为观测数据。多行对齐示例：
+  \begin{align}
+    \mathcal{L}(\theta) &= \prod_{i=1}^{N} p(x_i \mid \theta) \\
+    \log \mathcal{L}(\theta) &= \sum_{i=1}^{N} \log p(x_i \mid \theta)
+  \end{align}
+  \pause
+  自动引用：见式~\eqref{eq:bayes}。
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{代码片段}
+  \begin{lstlisting}[language=Python, caption={最小可运行的 Python 片段}]
+def greet(name: str) -> str:
+    """Return a friendly ZZU greeting."""
+    return f"欢迎使用郑州大学 Beamer 模板, {name}!"
+
+if __name__ == "__main__":
+    print(greet("郑大学子"))
+  \end{lstlisting}
+\end{frame}

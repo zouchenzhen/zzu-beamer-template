@@ -1,0 +1,229 @@
+% zzubeamer.sty
+% A Beamer theme for Zhengzhou University (ZZU).
+%
+% References (organisational inspiration only; this file is an independent
+% rewrite, not a fork):
+%   - pan2013e/ZJU-beamer-template       https://github.com/pan2013e/ZJU-beamer-template
+%   - qychen2001/ZJU-Beamer-Template     https://github.com/qychen2001/ZJU-Beamer-Template
+%   - ZZUTUG/ZZU-Beamer                  https://github.com/ZZUTUG/ZZU-Beamer
+%
+% Package renamed to "zzubeamer" so it does not clash with ZZUTUG's
+% beamerthemezzu.sty. Brand color #A33A37 was extracted by per-pixel sampling
+% of the official school badge bitmap, not copied from any prior project.
+%
+% Usage:
+%   \documentclass[10pt, aspectratio=169]{beamer}
+%   \usepackage{zzubeamer}
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{zzubeamer}[2026/05/13 v1.0 Zhengzhou University Beamer theme]
+
+\mode<presentation>
+
+% ----------------------------------------------------------------------------
+% 1. ZZU brand palette
+% ----------------------------------------------------------------------------
+\RequirePackage{xcolor}
+\definecolor{zzured}{HTML}{A33A37}        % primary, extracted from official badge
+\definecolor{zzudarkred}{HTML}{7E2A28}    % darker accent / hover
+\definecolor{zzubrightred}{HTML}{C8484A}  % lighter highlight
+\definecolor{zzuink}{HTML}{2C2C2C}        % body text (off-black)
+\definecolor{zzuslate}{HTML}{4D5B78}      % auxiliary slate (also from badge)
+\definecolor{zzucream}{HTML}{F7F3EB}      % warm cream background
+\definecolor{zzugold}{HTML}{C9A14A}       % subtle gold accent
+\definecolor{zzugray}{HTML}{8A8A8A}       % footer / metadata text
+
+% ----------------------------------------------------------------------------
+% 2. Required packages
+% ----------------------------------------------------------------------------
+\RequirePackage{tikz}
+\RequirePackage{graphicx}
+\RequirePackage{etoolbox}
+
+% ----------------------------------------------------------------------------
+% 3. Beamer color theme
+% ----------------------------------------------------------------------------
+\setbeamercolor{normal text}{fg=zzuink, bg=white}
+\setbeamercolor{alerted text}{fg=zzured}
+\setbeamercolor{example text}{fg=zzuslate}
+
+\setbeamercolor{structure}{fg=zzured}
+\setbeamercolor{title}{fg=white, bg=zzured}
+\setbeamercolor{subtitle}{fg=zzucream}
+\setbeamercolor{author}{fg=zzuink}
+\setbeamercolor{institute}{fg=zzuslate}
+\setbeamercolor{date}{fg=zzugray}
+
+\setbeamercolor{frametitle}{fg=white, bg=zzured}
+\setbeamercolor{framesubtitle}{fg=zzucream}
+
+\setbeamercolor{section in toc}{fg=zzured}
+\setbeamercolor{section in toc shaded}{fg=zzuink}
+\setbeamercolor{subsection in toc}{fg=zzuslate}
+\setbeamercolor{subsection in toc shaded}{fg=zzugray}
+
+\setbeamercolor{item}{fg=zzured}
+\setbeamercolor{subitem}{fg=zzubrightred}
+\setbeamercolor{subsubitem}{fg=zzugold}
+
+\setbeamercolor{block title}{fg=white, bg=zzured}
+\setbeamercolor{block body}{fg=zzuink, bg=zzucream}
+\setbeamercolor{block title alerted}{fg=white, bg=zzudarkred}
+\setbeamercolor{block body alerted}{fg=zzuink, bg=zzucream}
+\setbeamercolor{block title example}{fg=white, bg=zzuslate}
+\setbeamercolor{block body example}{fg=zzuink, bg=zzucream}
+
+\setbeamercolor{footline}{fg=zzugray, bg=white}
+\setbeamercolor{page number in head/foot}{fg=zzured}
+
+% ----------------------------------------------------------------------------
+% 4. Beamer font theme
+% ----------------------------------------------------------------------------
+\setbeamerfont{frametitle}{size=\large, series=\bfseries}
+\setbeamerfont{title}{size=\huge, series=\bfseries}
+\setbeamerfont{subtitle}{size=\large, series=\mdseries, shape=\itshape}
+\setbeamerfont{author}{size=\normalsize, series=\mdseries}
+\setbeamerfont{institute}{size=\small, series=\mdseries}
+\setbeamerfont{date}{size=\small, series=\mdseries}
+\setbeamerfont{footline}{size=\scriptsize}
+\setbeamerfont{section in toc}{size=\large, series=\bfseries}
+
+% ----------------------------------------------------------------------------
+% 5. Outer theme: frame title, footline, headline
+% ----------------------------------------------------------------------------
+\setbeamertemplate{navigation symbols}{}    % hide nav
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{caption label separator}{:\ }
+
+% Frame title: full-width red bar with white bold text.
+\setbeamertemplate{frametitle}{%
+  \nointerlineskip%
+  \begin{beamercolorbox}[wd=\paperwidth,ht=3.6ex,dp=1.4ex,leftskip=1.2ex,rightskip=1.2ex]{frametitle}%
+    \usebeamerfont{frametitle}\strut\insertframetitle%
+    \ifx\insertframesubtitle\@empty\else%
+      \hskip1em{\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle}%
+    \fi%
+  \end{beamercolorbox}%
+}
+
+% Footline: short author | short title | page x/y, plus a thin red rule.
+\setbeamertemplate{footline}{%
+  \leavevmode%
+  \hbox{%
+    {\color{zzured}\rule{\paperwidth}{0.4pt}}%
+  }\par%
+  \vspace{-0.6ex}%
+  \hbox{%
+    \begin{beamercolorbox}[wd=.33\paperwidth,ht=2.6ex,dp=1ex,leftskip=1.4ex]{footline}%
+      \usebeamerfont{footline}\insertshortauthor%
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.34\paperwidth,ht=2.6ex,dp=1ex,center]{footline}%
+      \usebeamerfont{footline}\insertshorttitle%
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.33\paperwidth,ht=2.6ex,dp=1ex,rightskip=1.4ex]{footline}%
+      \hfill\usebeamerfont{footline}{\color{zzured}\insertframenumber}/\inserttotalframenumber\hspace*{0.5ex}%
+    \end{beamercolorbox}%
+  }%
+  \vskip2pt%
+}
+
+% ----------------------------------------------------------------------------
+% 6. Inner theme: itemize / enumerate bullets, blocks
+% ----------------------------------------------------------------------------
+\setbeamertemplate{itemize item}{\color{zzured}\small$\blacksquare$}
+\setbeamertemplate{itemize subitem}{\color{zzubrightred}\small$\blacktriangleright$}
+\setbeamertemplate{itemize subsubitem}{\color{zzugold}\small$\bullet$}
+\setbeamertemplate{enumerate item}{\color{zzured}\bfseries\insertenumlabel.}
+\setbeamertemplate{enumerate subitem}{\color{zzubrightred}\insertenumlabel.\insertsubenumlabel}
+
+\setbeamertemplate{blocks}[rounded][shadow=false]
+
+% ----------------------------------------------------------------------------
+% 7. Section page: full-screen red splash between sections.
+% ----------------------------------------------------------------------------
+\AtBeginSection[]{%
+  \begingroup
+  \setbeamertemplate{footline}{}%
+  \begin{frame}[plain,noframenumbering]
+    \begin{tikzpicture}[remember picture, overlay]
+      \fill[zzured] (current page.south west) rectangle (current page.north east);
+      \node[anchor=center, text=white, font=\fontsize{36}{42}\bfseries\selectfont,
+            text width=0.88\paperwidth, align=center]
+        at (current page.center) {\insertsection};
+      \node[anchor=south east, text=zzucream, font=\small]
+        at ([xshift=-1.2cm, yshift=1.0cm]current page.south east)
+        {\thesection\,/\,\inserttotalframenumber\ \insertshorttitle};
+    \end{tikzpicture}
+  \end{frame}
+  \endgroup
+}
+
+% ----------------------------------------------------------------------------
+% 8. Title page: brand banner + logo + meta.
+% ----------------------------------------------------------------------------
+\newcommand{\zzulogofile}{figures/zzu_logo.pdf}
+\newcommand{\setzzulogo}[1]{\renewcommand{\zzulogofile}{#1}}
+
+\setbeamertemplate{title page}{%
+  \begin{tikzpicture}[remember picture, overlay]
+    % top red band
+    \fill[zzured] (current page.north west) rectangle ([yshift=-2.2cm]current page.north east);
+    % bottom thin band
+    \fill[zzudarkred] ([yshift=0.9cm]current page.south west) rectangle (current page.south east);
+    % logo on the red band
+    \node[anchor=north west, inner sep=0pt]
+      at ([xshift=1.1cm, yshift=-0.55cm]current page.north west)
+      {\includegraphics[height=1.1cm]{\zzulogofile}};
+    % institution text on the red band
+    \node[anchor=north east, text=white, font=\small\bfseries]
+      at ([xshift=-1.1cm, yshift=-0.95cm]current page.north east)
+      {ZHENGZHOU UNIVERSITY};
+    % title block
+    \node[anchor=center, text width=0.82\paperwidth, align=center] (titleblock)
+      at ([yshift=0.6cm]current page.center) {%
+        {\usebeamerfont{title}\usebeamercolor[fg]{structure}\inserttitle\par}%
+        \ifx\insertsubtitle\@empty\else%
+          \vspace{0.6em}{\usebeamerfont{subtitle}\color{zzuslate}\insertsubtitle\par}%
+        \fi%
+      };
+    % decorative gold rule
+    \draw[zzugold, line width=1pt] ([yshift=-0.4cm]titleblock.south) -- ++(3cm,0);
+    % author / institute / date
+    \node[anchor=north, text width=0.82\paperwidth, align=center]
+      at ([yshift=-1.2cm]titleblock.south) {%
+        {\usebeamerfont{author}\color{zzuink}\insertauthor\par}%
+        \vspace{0.5em}%
+        {\usebeamerfont{institute}\color{zzuslate}\insertinstitute\par}%
+        \vspace{0.4em}%
+        {\usebeamerfont{date}\color{zzugray}\insertdate\par}%
+      };
+    % bottom signature
+    \node[anchor=south, text=zzucream, font=\scriptsize]
+      at ([yshift=0.25cm]current page.south) {Beamer Theme \textbf{zzu} \textbar{} \today};
+  \end{tikzpicture}%
+}
+
+% ----------------------------------------------------------------------------
+% 9. Convenience commands
+% ----------------------------------------------------------------------------
+\newcommand{\ftitle}[1]{\frametitle{#1}}
+
+% Closing frame: red splash "Thanks".
+\newcommand{\zzuthankspage}[1][谢谢聆听\ \textperiodcentered\ Thanks]{%
+  \begingroup
+  \setbeamertemplate{footline}{}%
+  \begin{frame}[plain,noframenumbering]
+    \begin{tikzpicture}[remember picture, overlay]
+      \fill[zzured] (current page.south west) rectangle (current page.north east);
+      \node[anchor=center, text=white, font=\fontsize{40}{48}\bfseries\selectfont]
+        at (current page.center) {#1};
+      \node[anchor=south, text=zzucream, font=\small]
+        at ([yshift=0.8cm]current page.south) {\insertauthor\ \textbar{}\ \insertshorttitle};
+    \end{tikzpicture}
+  \end{frame}
+  \endgroup
+}
+
+\mode<all>
+
+\endinput
