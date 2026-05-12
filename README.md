@@ -27,7 +27,9 @@
 
 ## 截图 / Screenshots
 
-编译生成的 `main.pdf` 包含封面、目录、分节页、内容页（公式 / 代码 / 表 / 图）、致谢页。运行下文 "快速开始" 即可获得本地预览。
+下图为 [`main.pdf`](main.pdf) 全部 20 页（16:9）的概览，可直观感受模板的封面、目录、红色分节页、内容页（公式 / 代码 / 表 / 图）与致谢页的整体风格。点击查看 [完整 PDF](main.pdf)。
+
+![ZZU Beamer Template Preview](figures/preview.png)
 
 ## 目录结构 / Project Structure
 
@@ -48,7 +50,8 @@ zzu-beamer-template/
 ├── figures/                    # Logo 与示例图
 │   ├── zzu_logo.pdf            # 校徽（矢量，推荐）
 │   ├── zzu_logo.jpg            # 校徽（彩色光栅）
-│   └── zzu_name.png            # 校名字样
+│   ├── zzu_name.png            # 校名字样
+│   └── preview.png             # 全套幻灯片预览拼图（README 引用）
 ├── README.md
 ├── LICENSE
 └── .gitignore
