@@ -1,0 +1,25 @@
+ZZU Beamer Template
+Copyright 2026 zouchenzhen
+
+This product includes software developed by zouchenzhen.
+
+The Zhengzhou University name, the school badge (校徽), and related visual
+identifiers are property of Zhengzhou University and are not licensed under
+the Apache License 2.0. They are reproduced here under fair-use for
+academic-presentation purposes only and do not represent any trademark grant.
+Commercial use of these marks requires separate written permission from
+Zhengzhou University.
+
+The organisational structure of this project was inspired by the following
+prior works, each developed and released independently:
+
+  - pan2013e/ZJU-beamer-template
+      https://github.com/pan2013e/ZJU-beamer-template
+  - qychen2001/ZJU-Beamer-Template
+      https://github.com/qychen2001/ZJU-Beamer-Template
+  - ZZUTUG/ZZU-Beamer
+      https://github.com/ZZUTUG/ZZU-Beamer
+
+All LaTeX code in this repository is an independent rewrite. The brand
+color #A33A37 was extracted by per-pixel sampling of the official school
+badge bitmap, not copied from any prior project.

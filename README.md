@@ -3,7 +3,7 @@
 > 一份贴近郑州大学（Zhengzhou University, ZZU）视觉风格的 LaTeX Beamer 演示模板。<br>
 > A LaTeX Beamer template themed for Zhengzhou University.
 
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)
 ![Engine](https://img.shields.io/badge/engine-XeLaTeX-red.svg)
 ![Aspect Ratio](https://img.shields.io/badge/aspect-16%3A9%20%7C%204%3A3-lightgrey.svg)
 
@@ -127,7 +127,12 @@ latexmk -xelatex main.tex
 
 ## 许可证 / License
 
-本模板遵循 [MIT License](LICENSE) 开源。校徽与校名图像版权归郑州大学所有，本仓库仅以"合理使用"的范围用于学术汇报场景；商用前请向校方申请授权。
+本模板遵循 [Apache License 2.0](LICENSE) 开源，详细的版权与商标声明请参见 [NOTICE](NOTICE) 文件。
+
+简要说明：
+
+- **代码与文档** — 在 Apache 2.0 下自由使用、修改、再发布；保留版权声明与 NOTICE 内容即可。
+- **校徽与校名** — 版权归郑州大学所有，本仓库仅以"合理使用"用于学术汇报场景；商用请向学校宣传部申请单独授权。
 
 ## 反馈 / Feedback
 
