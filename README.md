@@ -1,7 +1,7 @@
 # ZZU Beamer Template
 
-> 一份贴近郑州大学（Zhengzhou University, ZZU）视觉风格的 LaTeX Beamer 演示模板。<br>
-> A LaTeX Beamer template themed for Zhengzhou University.
+> A LaTeX Beamer template themed for Zhengzhou University (ZZU), with a bilingual title page and a brand-red palette inspired by the university badge.<br>
+> 一份贴近郑州大学（ZZU）视觉风格的 LaTeX Beamer 演示模板，提供双语封面与郑大红配色。
 
 ![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)
 ![Engine](https://img.shields.io/badge/engine-XeLaTeX-red.svg)
@@ -13,8 +13,8 @@
 
 本模板面向郑州大学师生的学术汇报场景：本科与研究生答辩、课题组组会、学术讲座、课程展示等。模板提供了：
 
-- 基于郑大主色 `#A33A37`（实证提取自官方校徽）的完整 Beamer 配色方案
-- 红色横幅式标题页 + 全屏红色分节页 + 致谢页的现成实现
+- 基于郑大主色 `#A33A37`（参考校徽主色）的完整 Beamer 配色方案
+- 校徽 + 中英文校名的红色横幅式标题页、全屏红色分节页与致谢页
 - 列表、公式、表格、代码、图片、引用等常用元素的演示
 - 4:3 与 16:9 双比例兼容
 - 单文件主题 (`zzubeamer.sty`) 设计，开箱即用
@@ -48,9 +48,10 @@ zzu-beamer-template/
 │   ├── bib.tex                 # 参考文献
 │   └── thanks.tex              # 致谢
 ├── figures/                    # Logo 与示例图
-│   ├── zzu_logo.pdf            # 校徽（矢量，推荐）
-│   ├── zzu_logo.jpg            # 校徽（彩色光栅）
-│   ├── zzu_name.png            # 校名字样
+│   ├── zzu_badge.png           # 圆形透明背景校徽（默认封面使用）
+│   ├── zzu_logo.jpg            # 校徽原始光栅图
+│   ├── zzu_logo.pdf            # 校名字样矢量图（兼容保留）
+│   ├── zzu_name.png            # 校名字样光栅图
 │   └── preview.png             # 全套幻灯片预览拼图（README 引用）
 ├── README.md
 ├── LICENSE

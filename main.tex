@@ -8,7 +8,8 @@
 
 \PassOptionsToPackage{dvipsnames}{xcolor}
 
-\documentclass[10pt, aspectratio=169, mathserif]{beamer}
+\documentclass[10pt, aspectratio=169]{beamer}
+\usefonttheme[onlymath]{serif}
 
 % Chinese support via ctex.
 \usepackage[UTF8, fontset=windows]{ctex}
@@ -57,7 +58,7 @@
 % ----------------------------------------------------------------
 \title[ZZU Beamer 模板]{郑州大学 Beamer 演示模板}
 \subtitle{ZZU Beamer Template Showcase}
-\author[Your Name]{你的姓名}
+\author[Your Name]{\texorpdfstring{你的姓名}{Your Name}}
 \institute[ZZU]{郑州大学\,\textbar\,Zhengzhou University \\ \small School / Department Name}
 \date{\today}
 

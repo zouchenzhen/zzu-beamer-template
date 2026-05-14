@@ -81,7 +81,7 @@
 % ----------------------------------------------------------------------------
 \setbeamerfont{frametitle}{size=\large, series=\bfseries}
 \setbeamerfont{title}{size=\huge, series=\bfseries}
-\setbeamerfont{subtitle}{size=\large, series=\mdseries, shape=\itshape}
+\setbeamerfont{subtitle}{size=\large, series=\mdseries}
 \setbeamerfont{author}{size=\normalsize, series=\mdseries}
 \setbeamerfont{institute}{size=\small, series=\mdseries}
 \setbeamerfont{date}{size=\small, series=\mdseries}
@@ -161,23 +161,26 @@
 % ----------------------------------------------------------------------------
 % 8. Title page: brand banner + logo + meta.
 % ----------------------------------------------------------------------------
-\newcommand{\zzulogofile}{figures/zzu_logo.pdf}
+\newcommand{\zzulogofile}{figures/zzu_badge.png}
 \newcommand{\setzzulogo}[1]{\renewcommand{\zzulogofile}{#1}}
 
 \setbeamertemplate{title page}{%
   \begin{tikzpicture}[remember picture, overlay]
     % top red band
-    \fill[zzured] (current page.north west) rectangle ([yshift=-2.2cm]current page.north east);
+    \fill[zzured] (current page.north west) rectangle ([yshift=-2.25cm]current page.north east);
     % bottom thin band
-    \fill[zzudarkred] ([yshift=0.9cm]current page.south west) rectangle (current page.south east);
-    % logo on the red band
-    \node[anchor=north west, inner sep=0pt]
-      at ([xshift=1.1cm, yshift=-0.55cm]current page.north west)
-      {\includegraphics[height=1.1cm]{\zzulogofile}};
-    % institution text on the red band
-    \node[anchor=north east, text=white, font=\small\bfseries]
-      at ([xshift=-1.1cm, yshift=-0.95cm]current page.north east)
-      {ZHENGZHOU UNIVERSITY};
+    \fill[zzudarkred] ([yshift=0.52cm]current page.south west) rectangle (current page.south east);
+    % university badge and bilingual wordmark on the red band
+    \node[anchor=north west, inner sep=0pt] (zzubadge)
+      at ([xshift=0.9cm, yshift=-0.38cm]current page.north west)
+      {\includegraphics[height=1.42cm]{\zzulogofile}};
+    \node[anchor=west, align=left, text=white]
+      at ([xshift=0.34cm]zzubadge.east)
+      {{\fontsize{18}{21}\selectfont\bfseries 郑州大学}\\[-0.05em]
+       {\scriptsize\bfseries ZHENGZHOU UNIVERSITY}};
+    \node[anchor=north east, align=right, text=zzucream, font=\scriptsize\bfseries]
+      at ([xshift=-0.9cm, yshift=-0.88cm]current page.north east)
+      {\insertshortinstitute};
     % title block
     \node[anchor=center, text width=0.82\paperwidth, align=center] (titleblock)
       at ([yshift=0.6cm]current page.center) {%
@@ -190,16 +193,14 @@
     \draw[zzugold, line width=1pt] ([yshift=-0.4cm]titleblock.south) -- ++(3cm,0);
     % author / institute / date
     \node[anchor=north, text width=0.82\paperwidth, align=center]
-      at ([yshift=-1.2cm]titleblock.south) {%
+      at ([yshift=-0.98cm]titleblock.south) {%
         {\usebeamerfont{author}\color{zzuink}\insertauthor\par}%
-        \vspace{0.5em}%
+        \vspace{0.35em}%
         {\usebeamerfont{institute}\color{zzuslate}\insertinstitute\par}%
-        \vspace{0.4em}%
+        \vspace{0.3em}%
         {\usebeamerfont{date}\color{zzugray}\insertdate\par}%
       };
-    % bottom signature
-    \node[anchor=south, text=zzucream, font=\scriptsize]
-      at ([yshift=0.25cm]current page.south) {Beamer Theme \textbf{zzu} \textbar{} \today};
+    % keep the bottom band decorative; date is shown only in the metadata block.
   \end{tikzpicture}%
 }
 
